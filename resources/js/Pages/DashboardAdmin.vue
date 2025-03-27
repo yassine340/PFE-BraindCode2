@@ -12,7 +12,7 @@ import DocumentsIndex from "@/Pages/Documents/Index.vue";
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <!-- E-learning Page -->
                 <div class="mt-6">
-                    <DocumentsIndex />
+                    
                 </div>
             </div>
         </div>

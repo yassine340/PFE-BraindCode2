@@ -36,63 +36,60 @@ const toggleNavigationDropdown = () => {
                 <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div class="flex h-16 justify-between">
                         <div class="flex">
-                            <!-- Logo -->
-                            <div class="flex shrink-0 items-center">
-                                <Link :href="route('dashboard')">
-                                    <ApplicationLogo
-                                        class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200"
-                                    />
-                                </Link>
-                            </div>
+                      
 
-                                <!-- Navigation Links -->
-                                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                                <!-- Si Formateur -->
-                                <template v-if="role === 'formateur'">
-                                    <NavLink :href="route('DashboardFormateur')" :active="route().current('DashboardFormateur')">
-                                        Dashboard Formateur
-                                    </NavLink>
-                                    <NavLink :href="route('upload.videos')" :active="route().current('upload.videos')">
-                                        Upload Vidéos
-                                    </NavLink>
-                                    <NavLink :href="route('afficher.videos')" :active="route().current('afficher.videos')">
-                                        Voir Vidéos
-                                    </NavLink>
-                                    <NavLink 
-                                        :href="route('formation.list')" 
-                                        :active="route().current('formation.list')"
-                                    >
-                                        Formations
-                                    </NavLink>
-                                </template>
+                              <!-- Navigation Links -->
+<div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+  <!-- Si Formateur -->
+  <template v-if="role === 'formateur'">
+    <NavLink :href="route('DashboardFormateur')" :active="route().current('DashboardFormateur')">
+      Dashboard Formateur
+    </NavLink>
+    <NavLink :href="route('upload.videos')" :active="route().current('upload.videos')">
+      Upload Vidéos
+    </NavLink>
+    <NavLink :href="route('afficher.videos')" :active="route().current('afficher.videos')">
+      Voir Vidéos
+    </NavLink>
+    <NavLink 
+      :href="route('formations.index')" 
+      :active="route().current('formations.index')"
+    >
+      Formations
+    </NavLink>
+  </template>
 
-                                <!-- Si Admin -->
-                                <template v-else-if="role === 'admin'">
-                                    <NavLink :href="route('DashboardAdmin')" :active="route().current('DashboardAdmin')">
-                                        Dashboard Administrateur
-                                    </NavLink>
-                               
-                                    <NavLink :href="route('formateur.en.attente')" :active="route().current('formateur.en.attente')">
-                                        Formateurs en attente
-                                    </NavLink>
-                                    <NavLink :href="route('formateur.list')" :active="route().current('formateur.list')">
-                                        Formateurs
-                                    </NavLink>
-                                    <NavLink 
-                                        :href="route('formations.index')" 
-                                        :active="route().current('formations.index')"
-                                    >
-                                        Formations
-                                    </NavLink>
-                                </template>
+  <!-- Si Admin -->
+  <template v-else-if="role === 'admin'">
+    <NavLink :href="route('DashboardAdmin')" :active="route().current('DashboardAdmin')">
+      Dashboard Administrateur
+    </NavLink>
+    <NavLink :href="route('formateur.en.attente')" :active="route().current('formateur.en.attente')">
+      Formateurs en attente
+    </NavLink>
+    <NavLink :href="route('formateur.list')" :active="route().current('formateur.list')">
+      Formateurs
+    </NavLink>
+    <NavLink 
+      :href="route('formations.index')" 
+      :active="route().current('formations.index')"
+    >
+      Formations
+    </NavLink>
+  </template>
 
-                                <!-- Pour les autres utilisateurs -->
-                                <template v-else>
-                                    <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                        Dashboard
-                                    </NavLink>
-                                </template>
-
+  <!-- Pour les autres utilisateurs (inclut le rôle 'user') -->
+  <template v-else>
+    <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
+      Dashboard
+    </NavLink>
+    <NavLink 
+      :href="route('formations.index')" 
+      :active="route().current('formations.index')"
+    >
+      Formations
+    </NavLink>
+  </template>
 </div>
 
                         </div>
